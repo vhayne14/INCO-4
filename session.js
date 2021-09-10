@@ -10,8 +10,4 @@ const sessionConfig = {
         secret: process.env.SESS_SECRET
     }
 
-
-
-
-
 module.exports = sessionConfig
