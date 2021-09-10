@@ -7,12 +7,10 @@ const db = require('../database')
 
 router.get('/',(req,res)=>{
 
-    res.send({
-        
-
-        title: 'Login page',
+    res.render('pages/login', {
         message: req.query.message
-    })
+      })
+    
 })
 
 router.post('/',(req,res)=>{
