@@ -5,6 +5,16 @@ const router = express.Router()
 const db = require('../database')
 
 
+
+router.get('/',(req,res)=>{
+    
+console.log(req.session);
+    res.send({
+        title: 'Signup page'
+    })
+})
+
+
 router.post("/",(req,res) => {
     // 1. validate user data (try joi package)
     const { firstname, lastname, email, password, confirm_password } = req.body
@@ -44,7 +54,6 @@ router.post("/",(req,res) => {
         res.json(err);
     })
     
-
 })
 
 module.exports = router
