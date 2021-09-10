@@ -33,8 +33,6 @@ app.set('view engine','ejs')
 // }))
 app.use(session(sessionConfig))
 
-
-
 // route middleware
 
 app.use('/signup', redirectToHome, signupRouter)
