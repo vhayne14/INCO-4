@@ -1,0 +1,49 @@
+<h1>My schedules</h1>
+
+<div>
+    <table class = "schedules">
+         <thead>
+             <tr>
+                 <th>Username</th>
+                 <th>Day</th>
+                 <th>Start</th>
+                 <th>End</th>
+             </tr>
+         </thead>
+         <tbody>
+             <% schedules.forEach(schedule => { %>
+                <tr>
+                <td>
+                    <%= schedule.username %>
+                    </td>             
+                    <% let day %>
+                    <% if(schedule.day == 1) {%>
+                        <%  day = 'Monday'; %>
+                    <% } %>
+                    <% if(schedule.day == 2) {%>
+                        <%  day = 'Tuesday'; %>
+                    <% } %>
+                    <% if(schedule.day == 3) {%>
+                        <%  day = 'Wednesday'; %>
+                    <% } %>
+                    <% if(schedule.day == 4) {%>
+                        <%  day = 'Thursday'; %>
+                    <% } %>
+                    <% if(schedule.day == 5) {%>
+                        <%  day = 'Friday'; %>
+                    <% } %>
+                    <% if(schedules.day == 6) {%>
+                        <%  day = 'Saturday'; %>
+                    <% } %>
+                    <% if(schedule.day == 7) {%>
+                        <%  day = 'Sunday'; %>
+                    <% } %>
+                    <td><%= day %></td>
+                    <td><%= schedule.start_at %> </td>
+                    <td><%= schedule.end_at %> <br></td>
+             
+                </tr>
+            <% }) %>
+        </tbody>
+    </table> 
+</div>

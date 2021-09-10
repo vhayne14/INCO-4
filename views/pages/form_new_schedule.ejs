@@ -1,0 +1,35 @@
+<div class="form">
+    <form method="POST" action="/schedules/new">
+        <div>
+            <label for="username">Nom</label>
+            <input name="username" id="username" type="text" required>
+        </div>
+
+        <div>
+            <label for="user_id">User id:</label>
+            <input name="user_id" id="user_id" type="number" required>
+        </div>
+        <div>
+            <label for="day">Day:</label>
+            <select name="day" id="day">
+                <option value="">Veuillez sélectionner le jour</option>
+                <option value="1">Lundi</option>
+                <option value="2">Mardi</option>
+                <option value="3">Mercredi</option>
+                <option value="4">Jeudi</option>
+                <option value="5">Vendredi</option>
+                <option value="6">Samedi</option>
+                <option value="7">Dimanche</option>
+            </select>
+        </div>
+        <div>
+            <label for="start">Début:</label>
+            <input name="start_at" id="start" type="time" required>
+        </div>
+        <div>
+            <label for="end">Finir:</label>
+            <input name="end_at" id="end" type="time" required>
+        </div>
+        <button class="button">Envoyer</button>
+    </form>
+</div>

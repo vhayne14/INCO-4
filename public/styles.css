@@ -1,0 +1,138 @@
+
+:root {
+    --main-color: #6A7B8B;
+    --second-color: #BAC2C8;
+    --text-color: #5C5B5B;
+    --second-text-color: #FFFFFF;
+    --background-color: #F5F5F5;
+    --error-color: #ee3b3b; 
+    --correct-color: #43d680;
+    --font: 'Open sans', sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--background-color);
+}
+
+main {
+    margin: 0 10% 0 10%;
+
+}
+
+p {
+    color: var(--text-color);
+    padding: 10px;
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 25px;
+}
+
+nav {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100px;
+    justify-content: space-between;
+    background-color: #6A7B8B;
+}
+
+.logo-nav {
+    height: 60px;
+    width: auto;
+    padding: 10px 0 0 20px;
+}
+
+.container img {
+    height: 200px;
+    padding: 3rem;
+}
+
+.links {
+    color: var(--second-text-color);
+    text-decoration: none;
+    padding: 2.5rem;
+
+}
+
+nav ul {
+    text-align: center;
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.button {
+    background-color: var(--main-color);
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px grey;
+    padding: 2vh 4vh 2vh 4vh;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--second-text-color);
+    position: relative;
+    text-align: center;
+    width: 10rem; 
+    margin-top: 2rem;
+    margin-bottom: 2rem;   
+    background-color: var(--main-color);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.schedules {
+    color: var(--text-color);
+    list-style: none;
+}
+
+th {
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+td {
+    font-weight: bolder;
+    color: var(--text-color);
+    list-style: none;
+    padding-right: 2rem;
+}
+
+a {
+    color: var(--text-color);
+
+}
+
+.form {
+    position: relative;
+    padding: 30px;
+    width: 70%;
+    margin: auto;
+}
+
+.form label {
+    display: block;
+    color: var(--text-color);
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+}
+
+input, textarea, select {
+    background-color: var(--second-color);
+    color: var(--second-text-color);
+    width: 100%;
+    border: 2px solid #F0F0F0;
+    text-align: left;
+    padding: 1vh;
+    margin-bottom: 2vh;
+    } 

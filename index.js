@@ -4,8 +4,8 @@ const morgan = require('morgan');
 const session = require('express-session')
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
+const userRouter = require('./routes/dashboard');
 const sessionConfig = require('./session');
-
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -34,9 +34,13 @@ app.use(session(sessionConfig))
 // route middleware
 app.use('/signup',signupRouter)
 app.use('/login',loginRouter)
+app.use('/dashboard', userRouter)
+
 
 app.use(morgan('dev'))
 
+// Set our static folder
+app.use(express.static('public'))
 
 
 app.get('/login', (req, res) => {
