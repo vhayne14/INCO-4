@@ -31,7 +31,7 @@ router.post('/',(req,res)=>{
             bcrypt.compare(password,userExists.password)
             .then(result => {
                 if (result) {
-                    console.log(userExists.id);
+                    // console.log(userExists.id);
                     req.session.userId = userExists.id;
                     // edit session and redirect success msg
                    res.send(`Greetings ${userExists.firstname}!<br> You will be redirected in a moment!

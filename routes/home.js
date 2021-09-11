@@ -1,12 +1,35 @@
 const express = require('express')
 const router = express.Router()
 const {redirectToLogin} = require('../middleware')
+const db = require('../database')
 
 router.get("/", (req,res)=>{
-    res.send(`
+    
+
+    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[req.session.userId])
+    .then((sched)=>{
+        console.log(sched);
+        // res.render("pages/allSched", {
+        //     schedules: sched
+        // })
+        res.send(`
+        
     <h1> Welcome to homepage</h1>
+    <p> ${sched} </p>
     <a href ="/logout">Logout</a>
+    
+    
+
     `)
+
+    })
+    .catch((err)=>{
+        console.log(error);
+    })
+
+
 })
+
+
 
 module.exports = router
