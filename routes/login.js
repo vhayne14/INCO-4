@@ -34,7 +34,13 @@ router.post('/',(req,res)=>{
                     console.log(userExists.id);
                     req.session.userId = userExists.id;
                     // edit session and redirect success msg
-                    res.send('Successfully logged in')
+                   res.send(`Greetings ${userExists.firstname}!<br> You will be redirected in a moment!
+                   <script>
+                   const timeout = 3000;
+               
+                   setTimeout(() => {window.location = "http://localhost:5000/";}, timeout);
+                   </script>`)
+                    
                 }
                 else{
                     res.redirect('/login?message=User%20credentials%20incorrect')
