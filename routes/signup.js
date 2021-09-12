@@ -8,10 +8,14 @@ const db = require('../database')
 
 router.get('/',(req,res)=>{
     
-console.log(req.session);
-    res.send({
-        title: 'Signup page'
-    })
+// console.log(req.session);
+//     res.send({
+//         title: 'Signup page'
+//     })
+
+    res.render('pages/signup', {
+        message: req.query.message
+  })
 })
 
 

@@ -7,12 +7,10 @@ const db = require('../database')
 
 router.get('/',(req,res)=>{
 
-    res.send({
-        
-
-        title: 'Login page',
+    res.render('pages/login', {
         message: req.query.message
-    })
+      })
+    
 })
 
 router.post('/',(req,res)=>{
@@ -33,10 +31,16 @@ router.post('/',(req,res)=>{
             bcrypt.compare(password,userExists.password)
             .then(result => {
                 if (result) {
-                    console.log(userExists.id);
+                    // console.log(userExists.id);
                     req.session.userId = userExists.id;
                     // edit session and redirect success msg
-                    res.send('Successfully logged in')
+                   res.send(`Greetings ${userExists.firstname}!<br> You will be redirected in a moment!
+                   <script>
+                   const timeout = 3000;
+               
+                   setTimeout(() => {window.location = "http://localhost:5000/";}, timeout);
+                   </script>`)
+                    
                 }
                 else{
                     res.redirect('/login?message=User%20credentials%20incorrect')
