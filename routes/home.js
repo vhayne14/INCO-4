@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {redirectToLogin} = require('../middleware')
 const db = require('../database')
+const { result } = require('../database')
 
 router.get("/", (req,res) => {
     db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id;',)
@@ -9,10 +10,10 @@ router.get("/", (req,res) => {
         res.render("pages/home",{
             sched
         })
-        .catch((err)=>{
-            console.log(err);
-            res.send(err);
-        })
+        // .catch((err)=>{
+        //     console.log(err);
+        //     res.send(err);
+        // })
    })
    .catch((err)=>{
        console.log(err);
@@ -41,10 +42,10 @@ router.get('/users/:id',(req,res)=>{
         res.render("pages/home",{
             sched
         })
-        .catch((err)=>{
-            console.log(err);
-            res.send(err);
-        })
+        // .catch((err)=>{
+        //     console.log(err);
+        //     res.send(err);
+        // })
 
    })
    .catch((err)=>{
@@ -61,10 +62,10 @@ router.get('/new',(req,res)=>{
         res.render("pages/newSched",{
             sched
         })
-        .catch((err)=>{
-            console.log(err);
-            res.send(err);
-        })
+        // .catch((err)=>{
+        //     console.log(err);
+        //     res.send(err);
+        // })
 
    })
    .catch((err)=>{
@@ -74,6 +75,7 @@ router.get('/new',(req,res)=>{
 })
 
 router.post('/new', (req, res) => {
+    console.log("IT IS WORKING");
   db.none('INSERT INTO schedules (user_id, day, start_time, end_time) VALUES ($1, $2, $3, $4);',
   [req.body.user_id, req.body.day, req.body.start_time, req.body.end_time])
   .then(()=>{

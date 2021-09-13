@@ -17,8 +17,8 @@ CREATE TABLE schedules(
    id SERIAL PRIMARY KEY,
    user_id INT NOT NULL,
    day INT NOT NULL,
-   start_time TIMESTAMPTZ,
-   end_time TIMESTAMPTZ,
+   start_time TIME NOT NULL,
+   end_time TIME NOT NULL,
    created_at TIMESTAMPTZ DEFAULT now(),
    CONSTRAINT fk_user
       FOREIGN KEY(user_id) 
