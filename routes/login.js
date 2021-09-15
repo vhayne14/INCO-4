@@ -39,7 +39,9 @@ router.post('/',(req,res)=>{
                    const timeout = 3000;
                
                    setTimeout(() => {window.location = "http://localhost:5000/";}, timeout);
-                   </script>`)
+                   </script>
+                   `)
+                   
                     
                 }
                 else{

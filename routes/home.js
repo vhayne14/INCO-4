@@ -2,12 +2,20 @@ const express = require('express')
 const router = express.Router()
 const {redirectToLogin} = require('../middleware')
 const db = require('../database')
+const day = require("../helper/days")
 
 router.get("/", (req,res)=>{
     
 
-    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id;',)
+    const newData = db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id;',)
    .then((sched)=>{
+
+        
+        // console.log(`dayString == ${dayString}`);
+        // newData.forEach(dayString => {
+        //     console.log(dayString.day);
+        //     dayString.day = day.find( checker => checker.id == checker.name )
+        // })
         res.render("pages/home",{
             sched
         })
@@ -21,6 +29,8 @@ router.get("/", (req,res)=>{
        console.log(err);
        res.send(err)
    })
+
+
     
     
     
