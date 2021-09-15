@@ -42,6 +42,7 @@ router.post("/",(req,res) => {
             db.none('INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4)', [firstname, lastname, cleanedEmail, hash])
             .then(()=>{
                 res.redirect('/login?message=User%20successfully%20created.')
+                
             })
             .catch((err)=>{
                 console.log(err);
