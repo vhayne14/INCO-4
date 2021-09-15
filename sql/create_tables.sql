@@ -22,6 +22,6 @@ CREATE TABLE schedules(
    created_at TIME DEFAULT now(),
    CONSTRAINT fk_user
       FOREIGN KEY(user_id) 
-	  REFERENCES users(id)
+	   REFERENCES users(id)
       ON DELETE CASCADE
 );

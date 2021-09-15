@@ -3,6 +3,7 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 const router = express.Router()
 const db = require('../database')
+const signupRouter = require('../index')
 
 
 
@@ -18,14 +19,12 @@ router.get('/',(req,res)=>{
   })
 })
 
-
 router.post("/",(req,res) => {
     // 1. validate user data (try joi package)
     const { firstname, lastname, email, password, confirm_password } = req.body
 
 
     // 2. check if the user already exists in db
-    
     db.oneOrNone('SELECT * FROM users WHERE email = $1;', [email])
     .then(userExists => {
         if (userExists){
@@ -47,17 +46,13 @@ router.post("/",(req,res) => {
             .catch((err)=>{
                 console.log(err);
                 res.json(err);
-            })
-
-            
+            })   
         }
     })
     .catch((err)=>{
         console.log(err);
-        
         res.json(err);
-    })
-    
+    }) 
 })
 
 module.exports = router

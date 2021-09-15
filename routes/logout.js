@@ -15,4 +15,8 @@ router.get('/', (req,res)=>{
     })
 })
 
+<<<<<<< HEAD
 module.exports = router
+=======
+module.exports = router
+>>>>>>> 0ae3107bd6fe35e76a3a0db439164a241bf1750d

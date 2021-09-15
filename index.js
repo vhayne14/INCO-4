@@ -8,10 +8,8 @@ const homeRouter = require('./routes/home');
 const logoutRouter = require('./routes/logout');
 const sessionConfig = require('./session');
 const {redirectToLogin, redirectToHome} = require('./middleware');
-
 const app = express()
 const PORT = process.env.PORT || 3000
-
 
 // body parser
 app.use(express.urlencoded({extended: false}))
