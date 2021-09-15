@@ -8,10 +8,8 @@ const homeRouter = require('./routes/home');
 const logoutRouter = require('./routes/logout');
 const sessionConfig = require('./session');
 const {redirectToLogin, redirectToHome} = require('./middleware');
-
 const app = express()
 const PORT = process.env.PORT || 3000
-
 
 // body parser
 app.use(express.urlencoded({extended: false}))
@@ -20,12 +18,10 @@ app.use(express.json())
 // view engine
 app.set('view engine','ejs')
 
-
 app.use(session(sessionConfig))
 
 // route middleware
-
-app.use('/signup', redirectToHome, signupRouter)
+app.use('/signup', signupRouter)
 app.use('/login', redirectToHome, loginRouter)
 app.use('/logout',redirectToLogin, logoutRouter)
 app.use('/', redirectToLogin, homeRouter)

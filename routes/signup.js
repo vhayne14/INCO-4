@@ -3,21 +3,12 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 const router = express.Router()
 const db = require('../database')
+const signupRouter = require('../index')
 
 
-
-router.get('/',(req,res)=>{
-    
-// console.log(req.session);
-//     res.send({
-//         title: 'Signup page'
-//     })
-
-    res.render('pages/signup', {
-        message: req.query.message
-  })
+router.get('/',(req,res)=> {
+    res.render('pages/signup')
 })
-
 
 router.post("/",(req,res) => {
     // 1. validate user data (try joi package)
@@ -25,7 +16,6 @@ router.post("/",(req,res) => {
 
 
     // 2. check if the user already exists in db
-    
     db.oneOrNone('SELECT * FROM users WHERE email = $1;', [email])
     .then(userExists => {
         if (userExists){
@@ -47,17 +37,13 @@ router.post("/",(req,res) => {
             .catch((err)=>{
                 console.log(err);
                 res.json(err);
-            })
-
-            
+            })   
         }
     })
     .catch((err)=>{
         console.log(err);
-        
         res.json(err);
-    })
-    
+    }) 
 })
 
 module.exports = router
