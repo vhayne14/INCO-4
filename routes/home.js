@@ -19,10 +19,10 @@ router.get("/", (req,res)=>{
         res.render("pages/home",{
             sched
         })
-        .catch((err)=>{
-            console.log(err);
-            res.send(err);
-        })
+        // .catch((err)=>{
+        //     console.log(err);
+        //     res.send(err);
+        // })
 
    })
    .catch((err)=>{

@@ -4,17 +4,11 @@ const router = express.Router()
 const db = require('../database')
 
 router.get('/',(req,res)=>{
-<<<<<<< HEAD
 
     res.render('pages/login', {
         message: req.query.message
       })
     
-=======
-    res.render('pages/login', {
-        message: req.query.message
-      })
->>>>>>> 0ae3107bd6fe35e76a3a0db439164a241bf1750d
 })
 
 router.post('/',(req,res)=>{
@@ -37,23 +31,15 @@ router.post('/',(req,res)=>{
                     // console.log(userExists.id);
                     req.session.userId = userExists.id;
                     // edit session and redirect success msg
-<<<<<<< HEAD
                    res.send(`Greetings ${userExists.firstname}!<br> You will be redirected in a moment!
-=======
-                   res.send(`Gday ${userExists.firstname}!<br> Wishing you a nice day!
->>>>>>> 0ae3107bd6fe35e76a3a0db439164a241bf1750d
                    <script>
                    const timeout = 3000;
                
                    setTimeout(() => {window.location = "http://localhost:5000/";}, timeout);
-<<<<<<< HEAD
                    </script>
                    `)
                    
                     
-=======
-                   </script>`)         
->>>>>>> 0ae3107bd6fe35e76a3a0db439164a241bf1750d
                 }
                 else{
                     res.redirect('/login?message=User%20credentials%20incorrect')
