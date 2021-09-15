@@ -64,10 +64,7 @@ router.get('/profile',(req,res)=>{
         res.render("pages/home",{
             sched
         })
-        .catch((err)=>{
-            console.log(err);
-            res.send(err);
-        })
+    
 
    })
    .catch((err)=>{
@@ -82,10 +79,7 @@ router.get('/users/:id',(req,res)=>{
         res.render("pages/home",{
             sched
         })
-        .catch((err)=>{
-            console.log(err);
-            res.send(err);
-        })
+ 
 
    })
    .catch((err)=>{
@@ -102,10 +96,7 @@ router.get('/new',(req,res)=>{
         res.render("pages/newSched",{
             sched
         })
-        .catch((err)=>{
-            console.log(err);
-            res.send(err);
-        })
+
 
    })
    .catch((err)=>{

@@ -7,7 +7,7 @@ const day = [
     },
     {
         id:2,
-        name: "Tueday"
+        name: "Tuesday"
 
     },
     {
@@ -34,11 +34,7 @@ const day = [
         id:7,
         name: "Sunday"
 
-    },
-
-
-
-
+    }
 
 
 

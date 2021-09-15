@@ -31,13 +31,18 @@ router.post('/',(req,res)=>{
                     // console.log(userExists.id);
                     req.session.userId = userExists.id;
                     // edit session and redirect success msg
-                   res.send(`Greetings ${userExists.firstname}!<br> You will be redirected in a moment!
-                   <script>
-                   const timeout = 3000;
+                //    res.send(`Greetings ${userExists.firstname}!<br> You will be redirected in a moment!
+                //    <script>
+                //    const timeout = 3000;
                
-                   setTimeout(() => {window.location = "http://localhost:5000/";}, timeout);
-                   </script>
-                   `)
+                //    setTimeout(() => {window.location = "http://localhost:5000/";}, timeout);
+                //    </script>
+                //    `)
+
+                res.render("pages/greetings",{
+                    userExists
+                })
+                  
                    
                     
                 }
