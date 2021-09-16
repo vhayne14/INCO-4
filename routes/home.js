@@ -62,15 +62,16 @@ router.get('/profile',(req,res)=>{
     db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users RIGHT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[req.session.userId])
     .then((sched)=>{
 
-
-        
-
-        res.render("pages/profile",{
-            sched
-
-
-        })
     
+        db.any('SELECT users.id, firstname, lastname, email FROM users WHERE users.id = $1;',[req.session.userId])
+        .then((getName)=>{
+            res.render("pages/profile",{
+                sched,
+                getName
+
+            })
+        })
+        
 
    })
    .catch((err)=>{

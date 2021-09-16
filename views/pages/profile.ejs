@@ -17,10 +17,13 @@
                 <div class="col s12">
                     <div class="card">
                         <div class="card-content">
-                         
-                     
+                        
+                            <% getName.forEach(getName=> { %>
                             
-                           
+                            <span class="card-title center"><%= getName.firstname %> <%= getName.lastname %></span>
+                            <span class="card-title center"><%= getName.email %> </span>
+                            <% }) %>
+
                             <span class="card-title center">List of Schedules</span>
                             <div class="row">
                                <table class = "highlight striped responsive-table">
