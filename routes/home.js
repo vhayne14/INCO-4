@@ -7,7 +7,7 @@ const day = require("../helper/days")
 router.get("/", (req,res)=>{
     
 
-    const newData = db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id;',)
+    const newData = db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users RIGHT JOIN schedules ON users.id =  schedules.user_id;',)
    .then((sched)=>{
 
         
