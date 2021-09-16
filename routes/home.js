@@ -59,10 +59,16 @@ router.get("/", (req,res)=>{
 
 
 router.get('/profile',(req,res)=>{
-    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[req.session.userId])
+    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users RIGHT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[req.session.userId])
     .then((sched)=>{
-        res.render("pages/home",{
+
+
+        
+
+        res.render("pages/profile",{
             sched
+
+
         })
     
 
@@ -74,7 +80,7 @@ router.get('/profile',(req,res)=>{
 })
 
 router.get('/users/:id',(req,res)=>{
-    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[Number(req.params.id)])
+    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users RIGHT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[Number(req.params.id)])
     .then((sched)=>{
         res.render("pages/home",{
             sched
@@ -91,7 +97,7 @@ router.get('/users/:id',(req,res)=>{
 
 
 router.get('/new',(req,res)=>{
-    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users LEFT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[req.session.userId])
+    db.any('SELECT users.id, firstname, lastname, email, day, start_time, end_time FROM users RIGHT JOIN schedules ON users.id =  schedules.user_id WHERE users.id = $1;',[req.session.userId])
     .then((sched)=>{
         res.render("pages/newSched",{
             sched
@@ -110,7 +116,7 @@ router.get('/new',(req,res)=>{
 
 router.post('/new', (req,res)=>{
 
-    db.none('INSERT INTO schedules (user_id, day, start_time, end_time) VALUES ($1, $2, $3, $4);', [req.body.user_id, req.body.day, req.body.start_time, req.body.end_time])
+    db.none('INSERT INTO schedules (user_id, day, start_time, end_time) VALUES ($1, $2, $3, $4);', [req.session.userId, req.body.day, req.body.start_time, req.body.end_time])
     .then(()=>{
         res.redirect("/");
     })

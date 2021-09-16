@@ -8,6 +8,7 @@
     <title>New Schedule</title>
 </head>
 <body>
+  
     <main>
         <%- include('../partials/header') %>
         <div class="container">
@@ -17,15 +18,14 @@
                         <div class="card-content">
                             <span class="card-title center">New Schedule</span>
                             <div class="row">
+                                 
+                               
                                 <form action="/new" method="POST">
-                                    <div>
-                                        <label for="user_id">User ID:</label>
-                                        <input id="user_id" type="number" name="user_id" min="0" value="3">
-                                      </div>
-                       
+                                   
+                                   
                                       <div>
                                           <label for="day">Day:</label>
-                                          <input id="day" type="number" name="day" min="1" max="7" value="3">
+                                          <input id="day" type="number" name="day" min="1" max="7" value="">
                                       </div>
                               
                                       <div>
@@ -41,6 +41,7 @@
                                     <button type="submit">Submit</button>
                                 
                                 </form>
+                                
 
 
 
@@ -56,9 +57,5 @@
     
     </main>
 
-
-
-
-    
 </body>
 </html>
